@@ -1,6 +1,6 @@
 CS558 Technology Lecture 4: Browsers
-=================================================
-In this lecture, we are going to discuss the basics of using JavaScript in the browser.  This is not a course in web development, and so this material is in some sense not required, but being able to understand and use the browser can make it much easier to visualize and debug your projects.  It also allows you to make demos that you can publish on the web:
+====================================
+In this lecture, we are going to discuss the basics of using JavaScript in the browser.  This is not a course in web development, but being able to understand and use the browser can make it much easier to visualize and debug your projects.  It also allows you to make demos that you can publish on the web, and share with others thereby improving your ability communicate.  The contents of this lecture is by no means exhaustive, but it should be enough to help you get set up and understand the basics.
 
 # The DOM
 The document object model (or DOM) is the basic API of the web.  When you execute JavaScript within a browser, the DOM is the interface that the browser gives so that you can interact with items on the page.  The specification of the DOM is largely an ongoing process, and many of the details exist for a variety of technical, historical and social reasons.  The overall behavior though is exhaustively documented by the W3C and you can get a complete and precise description of the whole system from the W3C (which is the standards organization that oversees the DOM):
@@ -189,7 +189,7 @@ Some of the example things you can do with canvas 2D include:
 * Filtering operations
 
 ## Animations
-Finally, it is also possible to create animations using the canvas API and JavaScript.  The simplest way to do this is with the requestAnimationFrame() API.  
+Finally, it is also possible to create animations using the canvas API and JavaScript.  The most robust way to do this is with the requestAnimationFrame() API, which triggers an event whenever the screen needs to be redrawn:
 
 ```javascript
 function drawFrame() {
@@ -206,6 +206,12 @@ function drawFrame() {
 }
 
 drawFrame()
+```
+
+While requestAnimationFrame is the most efficient in terms of power and performance, it is called at non-uniform time intervals.  If you need you animation to play at a fixed rate, you can use the setInterval functions instead, for example:
+
+```javascript
+setInterval(drawFrame, 30)
 ```
 
 # References
